@@ -22,3 +22,8 @@ span.text-muted{
     text-indent:-9999px;
     background: url(../images/icon_top.png) no-repeat;
 }
+
+div.thumbnail.text-center {
+	width: 255px;
+	height: 390px;
+}
