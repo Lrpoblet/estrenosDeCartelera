@@ -1,28 +1,19 @@
 
-<div class"container">
-
+<div class"container">	
+ 
 <br>
-
-<table class="text-center ">
-	<thead>
-		<td ></td>
-		<td >Fecha de estreno</td>
-		<td >Título</td>
-		<td >Valoración</td>
-	</thead>
-
-	<tbody>
-		<tr ng-repeat="pelicula in peliculas | orderBy:'vote_average':true">
-			
-			<td><a href="#/title/{{ pelicula.id}}"><img src="{{ 'http://image.tmdb.org/t/p/w185/' + pelicula.poster_path }}"></a></td>
-			<td>{{ pelicula.release_date}}</td>
-			<td><a href="#/title/{{ pelicula.id}}">{{ pelicula.title}}</a></td>
-			<td>{{ pelicula.vote_average}}</td>
-
-
-		</tr>
-	</tbody>
-</table>
+	<span ng-repeat="pelicula in peliculas | orderBy:'release_date':true">
+		 
+ 	 		<div class="col-xs-6 col-md-3">
+ 	 			<div class="thumbnail text-center">
+      				<label class="caption">{{ pelicula.title}}</label>
+      				<img src="{{ 'http://image.tmdb.org/t/p/w185/' + pelicula.poster_path }}" alt="{{ pelicula.title}}">
+      				<br>
+      				<p>{{ pelicula.release_date}}</p>
+ 	 			</div>
+ 	 		</div>
+ 	 	
+	</span>
 
  	<!--Paginacion-->
  	<ul class="pagination">
@@ -33,5 +24,4 @@
      		<a href="#/page/{{ page + 1 }}" ng-show='page < 60'>></a>
    		</li>
 	</ul>
-
 </div>
