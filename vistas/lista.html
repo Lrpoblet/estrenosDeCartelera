@@ -7,7 +7,7 @@
  	 		<div class="col-xs-6 col-md-3">
  	 			<div class="thumbnail text-center">
       				<label class="caption">{{ pelicula.title}}</label>
-      				<img src="{{ 'http://image.tmdb.org/t/p/w185/' + pelicula.poster_path }}" alt="{{ pelicula.title}}">
+      				<img src="{{ 'http://image.tmdb.org/t/p/w185/' + pelicula.poster_path }}" alt="{{ pelicula.title}}" title="{{ pelicula.title}}" onError="this.onerror=null;this.src='images/No_Image_Available.png';">
       				<br>
       				<p>{{ pelicula.release_date}}</p>
  	 			</div>
