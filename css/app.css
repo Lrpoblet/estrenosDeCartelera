@@ -1,0 +1,8 @@
+#barraFooter {
+	    min-height: 30px;
+	    border: 1px solid transparent;
+}
+
+p.text-muted{
+	margin: 5px;
+}
