@@ -6,3 +6,19 @@
 span.text-muted{
 	margin: 5px;
 }
+
+.topMargen {
+	margin-top: 2px;
+}
+
+.scrollup{
+    width:40px;
+    height:40px;
+    opacity:0.7;
+    position:fixed;
+    bottom:50px;
+    right:100px;
+    display:none;
+    text-indent:-9999px;
+    background: url(../images/icon_top.png) no-repeat;
+}
