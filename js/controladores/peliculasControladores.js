@@ -28,13 +28,15 @@ var Ctrl = (function(){
 				$log.log("Fallo en la peticion AJAX " + err.code + "-" + err.message);
 				$window.alert("Fallo en la peticion AJAX " + err.code + "-" + err.message);
 			});
+
+
 		};
 
 	// animación para ir arriba de la página web al pulsar el botón.	
-	var _subirCtrl = function($scope){
+	var _subirCtrl = function(){
 
 		$('.scrollup').click(function(){
-			$("html, body").animate({ scrollTop: 0 }, 600);
+			$("html, body").animate({ scrollTop: 0 }, 300);
 			return false;
 		});
 	};
