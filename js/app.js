@@ -13,6 +13,10 @@ carteleraModule.config(['$routeProvider',function($routeProvider){
 		templateUrl: "vistas/lista.html",
 		controller: Ctrl.pageCtrl
 	}).
+	when("/title/:title",{
+		templateUrl: "vistas/title.html",
+		controller: Ctrl.titleCtrl
+	}).
 	otherwise({
 		redirectTo: "/"
 	});

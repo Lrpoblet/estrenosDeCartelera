@@ -30,7 +30,27 @@ var Ctrl = (function(){
 			});
 
 
-		};
+	};
+
+	var _titleCtrl = function($scope,$http,$log,$window,$routeParams){
+			
+		$http.get('https://api.themoviedb.org/3/movie/' + $routeParams.title + '?api_key=4584ae721cb020ce65a4bd25368ec31e&language=es')
+			
+			.success(function(pelicula){
+				//pelicula.poster_path = 'http://image.tmdb.org/t/p/w185' + pelicula.poster_path; 
+				$scope.pelicula = pelicula;
+			})
+
+			.success(function(pelicula){ 
+				$scope.pelicula = pelicula;
+			})
+			
+			.error(function(err){
+				$log.log("Fallo en la peticion AJAX " + err.code + "-" + err.message)
+				$window.alert("Fallo en la peticion AJAX " + err.code + "-" + err.message)
+			});
+
+	};
 
 	// animación para ir arriba de la página web al pulsar el botón.	
 	var _subirCtrl = function(){
@@ -44,6 +64,7 @@ var Ctrl = (function(){
 	return {
 		listaCtrl: _listaCtrl,
 		pageCtrl: _pageCtrl,
+		titleCtrl: _titleCtrl,
 		subirCtrl: _subirCtrl
 	};
 })();
