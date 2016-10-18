@@ -1,3 +1,9 @@
+
+h1 {
+     font-family: fantasy;
+     font-style: oblique;
+    text-shadow: 1px 2px #999;
+}
 .vistas {
     background: url(../images/fondo.jpg) repeat;
 }

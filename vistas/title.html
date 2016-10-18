@@ -1,7 +1,7 @@
 <div class="row">
 	<form class="form-vertical">
 		<div>
-			<h3 class="text-center">{{ pelicula.title}}</h3><br>
+			<h1 class="text-center">{{ pelicula.title}}</h3><br>
 			<div class="container text-center col-md-4">
 				<img class="marco2" src="{{ 'http://image.tmdb.org/t/p/w185/' + pelicula.poster_path }}" alt="{{ pelicula.title}}" title="{{ pelicula.title}}" onError="this.onerror=null;this.src='images/No_Image_Available.png';">
 			<!--onError="this.onerror=null;this.src='{{ 'http://image.tmdb.org/t/p/w185/' + pelicula.poster_path }}';"-->
