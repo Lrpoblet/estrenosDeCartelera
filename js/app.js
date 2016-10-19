@@ -3,6 +3,15 @@ var carteleraModule = angular.module('carteleraApp',['ngRoute']);
 
 carteleraModule.controller ("subirCtrl", Ctrl.subirCtrl);
 
+carteleraModule.directive ("barraNavegacion", function(){
+	return {
+		restrict: "E",
+		templateUrl: "vistas/barraNavegacion.html"
+	};
+});
+
+carteleraModule.controller ("buscarCtrl", Ctrl.buscarCtrl);
+
 carteleraModule.config(['$routeProvider',function($routeProvider){
 	$routeProvider.
 	when("/",{
@@ -16,6 +25,14 @@ carteleraModule.config(['$routeProvider',function($routeProvider){
 	when("/title/:title",{
 		templateUrl: "vistas/title.html",
 		controller: Ctrl.titleCtrl
+	}).
+	when("/buscador/:titulo",{
+		templateUrl: "vistas/listaBusca.html",
+		controller: Ctrl.buscarPeliCtrl
+	}).
+	when("/bpage/:titulo/:id",{
+		templateUrl: "vistas/listaBusca.html",
+		controller: Ctrl.bpageCtrl
 	}).
 	otherwise({
 		redirectTo: "/"

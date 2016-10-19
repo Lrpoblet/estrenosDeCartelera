@@ -61,10 +61,61 @@ var Ctrl = (function(){
 		});
 	};
 
+	var _buscarCtrl = function($scope,$http,$routeParams,$rootScope){
+		$scope.buscarPelis = function(t){
+			$rootScope.page = 1;
+			$rootScope.tit = t;
+			window.location.hash = '#/buscador/' + t;
+		
+		};
+		
+		$scope.buscarEnter = function(tecla,t) {
+			if (tecla.which === 13){
+				$rootScope.page = 1;
+				$rootScope.tit = t;
+				window.location.hash = '#/buscador/' + t;
+			}
+		};
+	};
+
+	var _buscarPeliCtrl = function($scope,$http,$routeParams,$log,$rootScope){
+		$http.get('http://api.themoviedb.org/3/search/movie?api_key=4584ae721cb020ce65a4bd25368ec31e&query=' + $routeParams.titulo + '&language=es')
+			.success(function(peliculas){
+				$scope.page = $rootScope.page;
+				$scope.peliculas = peliculas.results;
+				$scope.totalPages = peliculas.total_pages;
+
+			})
+			
+			.error(function(err){
+				$log.log("Fallo en la peticion AJAX " + err.code + "-" + err.message);
+				$window.alert("Fallo en la peticion AJAX " + err.code + "-" + err.message);
+			});
+		};
+
+	var _bpageCtrl = function($scope, $rootScope,$http,$log,$routeParams,$window){
+
+	$http.get('http://api.themoviedb.org/3/search/movie?api_key=4584ae721cb020ce65a4bd25368ec31e&query=' + $routeParams.titulo + '&page=' + $routeParams.id + '&language=es')
+		.success(function(peliculas){
+			$scope.page = Number($routeParams.id);
+			$scope.tit = $rootScope.tit;
+			$scope.peliculas = peliculas.results;
+			$scope.totalPages = peliculas.total_pages;
+		})
+		
+		.error(function(err){
+			$log.log("Fallo en la peticion AJAX " + err.code + "-" + err.message);
+			$window.alert("Fallo en la peticion AJAX " + err.code + "-" + err.message);
+		});
+	};
+
 	return {
 		listaCtrl: _listaCtrl,
 		pageCtrl: _pageCtrl,
 		titleCtrl: _titleCtrl,
-		subirCtrl: _subirCtrl
+		subirCtrl: _subirCtrl,
+		buscarCtrl: _buscarCtrl,
+		buscarPeliCtrl: _buscarPeliCtrl,
+		bpageCtrl: _bpageCtrl
 	};
 })();
