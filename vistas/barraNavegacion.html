@@ -1,0 +1,19 @@
+<header>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div id="navbar">
+	    <div id="home" class="navbar-header">
+	        <a class="navbar-brand" href="#/">Home</a>
+	    </div>
+	    <div id="buscador" ng-controller="buscarCtrl">
+			<!--ng-model: accede al scope usando esta directiva y definiendo un dato en él
+			Se lo pasamos como parámetro a las funciones buscarPelis y buscarEnter-->
+			<!--ng-keypress: sirve para capturar el evento de la tecla que pulse el usuario y asignarle al enter la función de buscar-->
+			<input class="campodetxt" id="cuadroTexto" type="text" ng-model="buscar.title" ng-keypress="buscarEnter($event,buscar.title)" placeholder=" Buscar título...">
+			<!--Con ng-click le asignamos al botón su funcionalidad-->
+			<button class="btn-buscador" id="boton" ng-click="buscarPelis(buscar.title)">Go</button>
+		</div>
+		</div>
+	</nav>
+</header>
+        
