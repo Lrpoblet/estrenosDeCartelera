@@ -95,9 +95,10 @@ transform: scale(1.1);
     border-radius: 10px;
     font-size: 15px;
     padding: 0.3%;
+    padding-left: 2%;
     margin-right: 2%;
     margin-bottom: 2%;
-    color: #AE0000;
+    color: #800000;
 }
 
 #boton {
