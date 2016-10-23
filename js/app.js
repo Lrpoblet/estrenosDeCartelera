@@ -22,6 +22,14 @@ carteleraModule.config(['$routeProvider',function($routeProvider){
 		templateUrl: "vistas/lista.html",
 		controller: Ctrl.pageCtrl
 	}).
+	when("/proximamente",{
+		templateUrl: "vistas/proximamente.html",
+		controller: Ctrl.proximosCtrl
+	}).
+	when("/proxpage/:page",{
+		templateUrl: "vistas/proximamente.html",
+		controller: Ctrl.pageProxCtrl
+	}).
 	when("/title/:title",{
 		templateUrl: "vistas/title.html",
 		controller: Ctrl.titleCtrl

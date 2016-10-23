@@ -32,6 +32,35 @@ var Ctrl = (function(){
 
 	};
 
+	var _proximosCtrl = function($scope,$rootScope,$http,$log,$window){
+		$rootScope.page = 1;
+		$http.get('https://api.themoviedb.org/3/movie/upcoming?api_key=4584ae721cb020ce65a4bd25368ec31e&language=es')
+			.success(function(peliculas){
+				
+				$scope.peliculas = peliculas.results;
+			})
+			.error(function(err){
+				$log.log("Fallo en la peticion AJAX " + err.code + "-" + err.message);
+				$window.alert("Fallo en la peticion AJAX " + err.code + "-" + err.message);
+			});
+
+		};
+
+	var _pageProxCtrl = function($scope, $rootScope,$http,$log,$routeParams,$window){
+		$http.get('https://api.themoviedb.org/3/movie/upcoming?api_key=4584ae721cb020ce65a4bd25368ec31e&language=es'+ $routeParams.page + '&language=es')
+			.success(function(peliculas){
+				$scope.page = Number($routeParams.page);
+				$scope.peliculas = peliculas.results;
+				$scope.totalPages = peliculas.total_pages;
+			})
+			
+			.error(function(err){
+				$log.log("Fallo en la peticion AJAX " + err.code + "-" + err.message);
+				$window.alert("Fallo en la peticion AJAX " + err.code + "-" + err.message);
+			});
+
+	};
+
 	var _titleCtrl = function($scope,$http,$log,$window,$routeParams){
 			
 		$http.get('https://api.themoviedb.org/3/movie/' + $routeParams.title + '?api_key=4584ae721cb020ce65a4bd25368ec31e&language=es')
@@ -116,6 +145,8 @@ var Ctrl = (function(){
 		subirCtrl: _subirCtrl,
 		buscarCtrl: _buscarCtrl,
 		buscarPeliCtrl: _buscarPeliCtrl,
-		bpageCtrl: _bpageCtrl
+		bpageCtrl: _bpageCtrl,
+		proximosCtrl: _proximosCtrl,
+		pageProxCtrl: _pageProxCtrl
 	};
 })();

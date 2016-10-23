@@ -1,0 +1,32 @@
+ <h1 class="text-center">Próximos estrenos</h3><br>
+<div class="container" ng-controller="subirCtrl">	
+ 
+<br>
+	<span ng-repeat="pelicula in peliculas | orderBy:'release_date':true">
+		 
+ 	 		<div class="col-xs-12 col-sm-6 col-md-3">
+ 	 			<div class="thumbnail text-center fade marco1">
+ 	 				<a href="#/title/{{ pelicula.id}}">
+      				<label class="caption">{{ pelicula.title}}</label>
+      					<img src="{{ 'http://image.tmdb.org/t/p/w185/' + pelicula.poster_path }}" alt="{{ pelicula.title}}" title="{{ pelicula.title}}" onError="this.onerror=null;this.src='images/No_Image_Available.png';">
+      				<br>
+      				<p>{{ pelicula.release_date}}</p>
+      				</a>
+ 	 			</div>
+ 	 		</div>
+ 	 	
+	</span>
+	<a href="#/" class="scrollup">Scroll</a>
+
+ 	<!--Paginacion-->
+ 	<div class="text-center">
+	 	<ul class="pagination">
+	  		<li class="active">
+	  			<a href="#/proxpage/{{ page - 1 }}" ng-show='page > 1'><</a>
+	  		</li>
+	  		<li class="active">
+	     		<a href="#/proxpage/{{ page + 1 }}" ng-show='page < totalPages'>></a>
+	   		</li>
+		</ul>
+	</div>
+</div>
