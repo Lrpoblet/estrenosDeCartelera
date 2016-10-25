@@ -2,13 +2,13 @@
 <div class="container" ng-controller="subirCtrl">	
  
 <br>
-	<span ng-repeat="pelicula in peliculas | orderBy:'popularity':true">
+	<span class="lista" ng-repeat="pelicula in peliculas | orderBy:'popularity':true">
 		 
  	 		<div class="col-xs-12 col-sm-6 col-md-3">
  	 			<div class="thumbnail text-center fade marco1">
  	 				<a href="#/title/{{ pelicula.id}}">
       				<label class="caption">{{ pelicula.title}}</label>
-      					<img src="{{ 'http://image.tmdb.org/t/p/w185/' + pelicula.poster_path }}" alt="{{ pelicula.title}}" title="{{ pelicula.title}}" onError="this.onerror=null;this.src='images/No_Image_Available.png';">
+      					<img src="{{ 'https://image.tmdb.org/t/p/w185/' + pelicula.poster_path }}" alt="{{ pelicula.title}}" title="{{ pelicula.title}}" onError="this.onerror=null;this.src='images/No_Image_Available.png';">
       				<br>
       				<p>{{ pelicula.release_date}}</p>
       				</a>
