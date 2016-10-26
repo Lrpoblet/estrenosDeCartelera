@@ -108,12 +108,16 @@ var Ctrl = (function(){
 	};
 
 	var _buscarPeliCtrl = function($scope,$http,$routeParams,$log,$rootScope){
-		$http.get('http://api.themoviedb.org/3/search/movie?api_key=4584ae721cb020ce65a4bd25368ec31e&query=' + $routeParams.titulo + '&language=es')
+		$http.get('https://api.themoviedb.org/3/search/movie?api_key=4584ae721cb020ce65a4bd25368ec31e&query=' + $routeParams.titulo + '&language=es')
 			.success(function(peliculas){
 				$scope.page = $rootScope.page;
 				$scope.peliculas = peliculas.results;
 				$scope.totalPages = peliculas.total_pages;
-
+				var total_results = $scope.total_results = peliculas.total_results;
+			if(total_results === 0){
+				console.log('no existe')
+				//$('.lista').html('no existe');
+				}
 			})
 			
 			.error(function(err){
@@ -124,7 +128,7 @@ var Ctrl = (function(){
 
 	var _bpageCtrl = function($scope, $rootScope,$http,$log,$routeParams,$window){
 
-	$http.get('http://api.themoviedb.org/3/search/movie?api_key=4584ae721cb020ce65a4bd25368ec31e&query=' + $routeParams.titulo + '&page=' + $routeParams.id + '&language=es')
+	$http.get('https://api.themoviedb.org/3/search/movie?api_key=4584ae721cb020ce65a4bd25368ec31e&query=' + $routeParams.titulo + '&page=' + $routeParams.id + '&language=es')
 		.success(function(peliculas){
 			$scope.page = Number($routeParams.id);
 			$scope.tit = $rootScope.tit;
