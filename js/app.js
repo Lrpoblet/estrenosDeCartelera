@@ -10,6 +10,13 @@ carteleraModule.directive ("barraNavegacion", function(){
 	};
 });
 
+carteleraModule.directive ("pieCopyright", function(){
+	return {
+		restrict: "E",
+		templateUrl: "vistas/pieCopyright.html"
+	};
+});
+
 carteleraModule.controller ("buscarCtrl", Ctrl.buscarCtrl);
 
 carteleraModule.config(['$routeProvider',function($routeProvider){
