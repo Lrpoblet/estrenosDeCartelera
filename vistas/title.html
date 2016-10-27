@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" id="vistaTitle">
 	<form class="form-vertical">
 		<div>
 			<h1 class="text-center">{{ pelicula.title}}</h3><br>
@@ -7,7 +7,7 @@
 			<!--onError="this.onerror=null;this.src='{{ 'http://image.tmdb.org/t/p/w185/' + pelicula.poster_path }}';"-->
 			</div><br>
 		</div>
-		<div class="form-group col-md-8 justificado marco3">
+		<div class="form-group col-md-8 justificado marco3"  ng-if="overview=null;this.src='images/nodisponible.jpg';">
 			{{ pelicula.overview }}
 			<br><br><br>
 			<div class= "text-center">
