@@ -5,6 +5,7 @@ h1 {
 }
 body {
     background: url(../images/fondo.jpg) repeat;
+    padding: 50px 0px;
 }
 
 .marco1 { 
