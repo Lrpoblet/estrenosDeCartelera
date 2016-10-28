@@ -1,20 +1,32 @@
+
 <header>
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-inverse navbar-fixed-top navbar-ex1-collaps" role="navigation">
+	  <div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div id="navbar">
-	    <div id="home" class="navbar-header">
-	        <a class="navbar-brand" href="#/">Estrenos</a>
-	        <a class="navbar-brand" href="#/proximamente">Próximamente</a>
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#/">Estrenos de cartelera</a>
 	    </div>
-	    <div id="buscador" ng-controller="buscarCtrl">
-			<!--ng-model: accede al scope usando esta directiva y definiendo un dato en él
-			Se lo pasamos como parámetro a las funciones buscarPelis y buscarEnter-->
-			<!--ng-keypress: sirve para capturar el evento de la tecla que pulse el usuario y asignarle al enter la función de buscar-->
-			<input class="campodetxt" id="cuadroTexto" type="text" ng-model="buscar.title" ng-keypress="buscarEnter($event,buscar.title)" placeholder=" Buscar título...">
-			<!--Con ng-click le asignamos al botón su funcionalidad-->
-			<button class="btn-buscador" id="boton" ng-click="buscarPelis(buscar.title)">Go</button>
-		</div>
-		</div>
-	</nav>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#/">Estrenos<span class="sr-only">(current)</span></a></li>
+        <li><a href="#/proximamente">Próximamente</a></li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div id="buscador" ng-controller="buscarCtrl" class="form-group">
+          <input type="text" class="campodetxt" id="cuadroTexto" type="text" ng-model="buscar.title" ng-keypress="buscarEnter($event,buscar.title)" placeholder=" Buscar título...">
+        </div>
+        <button type="submit" class="btn-buscador" id="boton" ng-click="buscarPelis(buscar.title)">Go!</button>
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
 </header>
-        
