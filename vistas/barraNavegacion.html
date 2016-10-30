@@ -15,7 +15,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <div id="buscador" ng-controller="buscarCtrl">
+        <div class="container-fluid"id="buscador" ng-controller="buscarCtrl">
           <input type="text" size="20" class="campodetxt" id="cuadroTexto" type="text" ng-model="buscar.title" ng-keypress="buscarEnter($event,buscar.title)" placeholder=" Buscar título...">
           <button type="submit" class="btn-buscador" id="boton" ng-click="buscarPelis(buscar.title)">Go!</button>
         </div>
