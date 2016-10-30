@@ -1,11 +1,11 @@
 h1 {
      font-family: fantasy;
      font-style: oblique;
-    text-shadow: 1px 2px #999;
+     text-shadow: 1px 2px #999;
 }
 body {
     background: url(../images/fondo.jpg) repeat;
-    padding: 50px 0px;
+    padding: 10% 0px;
 }
 
 .marco1 { 
@@ -35,16 +35,16 @@ body {
 
 
 #barraFooter {
-	    min-height: 30px;
+	    min-height: 1.8em;
 	    border: 1px solid transparent;
 }
 
 span.text-muted{
-	margin: 5px;
+	margin: 0.4em;
 }
 
 .topMargen {
-	margin-top: 2px;
+	margin-top: 0.125em;
 }
 
 .scrollup{
@@ -83,25 +83,25 @@ transform: scale(1.1);
 
 #buscador{
     float: right;
-    min-width: 300px;
-    padding: 12px 15px;
-    font-size: 18px;
+    min-width: 18.75em;
+    padding: 0.75em 0.9375em;
+    font-size: 1.125em;
 
 }
 
 #cuadroTexto {
-    border-radius: 10px;
-    font-size: 15px;
+    border-radius: 0.625em;
+    font-size: 1em;
     padding: 0.3%;
     padding-left: 2%;
     margin-right: 2%;
     margin-bottom: 2%;
-    color: #800000;
+    color: #ca7e02;
 }
 
 #boton {
-    border-radius: 200px;
-    font-size: 15px;
+    border-radius: 12.5em;
+    font-size: 1em;
     padding: 0.3% 0.7%;
     background-color: #f0c277
 }
@@ -110,10 +110,10 @@ transform: scale(1.1);
     display: inline;
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:22.5em){
 
     .vistas {
-        margin-top: 35px;
+        margin-top: 5%;
     }
     .scrollup{
         right:50px;
