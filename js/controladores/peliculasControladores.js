@@ -95,6 +95,8 @@ var Ctrl = (function(){
 			$rootScope.page = 1;
 			$rootScope.tit = t;
 			window.location.hash = '#/buscador/' + t;
+			//para que se colapte el buscador al buscar
+			$('.navbar-collapse').collapse('hide');
 		
 		};
 		
@@ -102,7 +104,8 @@ var Ctrl = (function(){
 			if (tecla.which === 13){
 				$rootScope.page = 1;
 				$rootScope.tit = t;
-				window.location.hash = '#/buscador/' + t;
+				window.location.hash = '#/buscador/' + t;				
+				$('.navbar-collapse').collapse('hide');
 			}
 		};
 	};
@@ -141,7 +144,16 @@ var Ctrl = (function(){
 			$window.alert("Fallo en la peticion AJAX " + err.code + "-" + err.message);
 		});
 	};
-
+/*
+	var _plegarCtrl = function($scope,$http,$routeParams,$log,$rootScope){
+		$scope.plegar = function(e){
+			$log.log("pulso")
+			if(e.target.id!='barra') {
+            	$('#barra').hide();
+        	};
+		};
+	};
+*/
 	return {
 		listaCtrl: _listaCtrl,
 		pageCtrl: _pageCtrl,
@@ -151,6 +163,7 @@ var Ctrl = (function(){
 		buscarPeliCtrl: _buscarPeliCtrl,
 		bpageCtrl: _bpageCtrl,
 		proximosCtrl: _proximosCtrl,
-		pageProxCtrl: _pageProxCtrl
+		pageProxCtrl: _pageProxCtrl,
+		//plegarCtrl: _plegarCtrl
 	};
 })();

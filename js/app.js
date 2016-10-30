@@ -1,6 +1,10 @@
 
 var carteleraModule = angular.module('carteleraApp',['ngRoute']);
 
+/*carteleraModule.controller ("plegarCtrl", Ctrl.plegarCtrl);*/
+
+carteleraModule.controller ("buscarCtrl", Ctrl.buscarCtrl);
+
 carteleraModule.controller ("subirCtrl", Ctrl.subirCtrl);
 
 carteleraModule.directive ("barraNavegacion", function(){
@@ -16,8 +20,6 @@ carteleraModule.directive ("pieCopyright", function(){
 		templateUrl: "vistas/pieCopyright.html"
 	};
 });
-
-carteleraModule.controller ("buscarCtrl", Ctrl.buscarCtrl);
 
 carteleraModule.config(['$routeProvider',function($routeProvider){
 	$routeProvider.
