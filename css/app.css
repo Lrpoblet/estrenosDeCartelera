@@ -120,6 +120,10 @@ transform: scale(1.1);
     .scrollup{
         right:50px;
     }
+    #buscador{
+    display: inline-block;
+    margin-left: inherit;
+    }
 }
 
 #lupa {
