@@ -1,8 +1,7 @@
 
 <header>
-	<nav class="navbar navbar-inverse navbar-fixed-top navbar-ex1-collaps" role="navigation">
+	<nav id="barra" class="navbar navbar-inverse navbar-fixed-top navbar-ex1-collaps" role="navigation">
 	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
         <a class="navbar-brand" href="#/">Estrenos</a>
         <a class="navbar-brand" href="#/proximamente">Próximamente</a>
@@ -13,9 +12,8 @@
 	      </button>
 	    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <div class="container-fluid"id="buscador" ng-controller="buscarCtrl">
+        <div class="container-fluid pull-right" id="buscador" ng-controller="buscarCtrl">
           <input type="text" size="20" class="campodetxt" id="cuadroTexto" type="text" ng-model="buscar.title" ng-keypress="buscarEnter($event,buscar.title)" placeholder=" Buscar título...">
           <button type="submit" class="btn-buscador" id="boton" ng-click="buscarPelis(buscar.title)">Go!</button>
         </div>
