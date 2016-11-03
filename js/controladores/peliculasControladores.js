@@ -4,8 +4,9 @@ var Ctrl = (function(){
 		$rootScope.page = 1;
 		$http.get('https://api.themoviedb.org/3/movie/now_playing?api_key=4584ae721cb020ce65a4bd25368ec31e&language=es')
 			.success(function(peliculas){
-				
 				$scope.peliculas = peliculas.results;
+				$scope.page = $rootScope.page;
+				$scope.totalPages = peliculas.total_pages;
 			})
 			.error(function(err){
 				$log.log("Fallo en la peticion AJAX " + err.code + "-" + err.message);
@@ -36,8 +37,9 @@ var Ctrl = (function(){
 		$rootScope.page = 1;
 		$http.get('https://api.themoviedb.org/3/movie/upcoming?api_key=4584ae721cb020ce65a4bd25368ec31e&language=es')
 			.success(function(peliculas){
-				
 				$scope.peliculas = peliculas.results;
+				$scope.page = $rootScope.page;
+				$scope.totalPages = peliculas.total_pages;
 			})
 			.error(function(err){
 				$log.log("Fallo en la peticion AJAX " + err.code + "-" + err.message);
@@ -70,13 +72,13 @@ var Ctrl = (function(){
 				$scope.pelicula = pelicula;
 			})
 
-			.success(function(pelicula){ 
+			.success(function(pelicula){
 				$scope.pelicula = pelicula;
 			})
 			
 			.error(function(err){
-				$log.log("Fallo en la peticion AJAX " + err.code + "-" + err.message)
-				$window.alert("Fallo en la peticion AJAX " + err.code + "-" + err.message)
+				$log.log("Fallo en la peticion AJAX " + err.code + "-" + err.message);
+				$window.alert("Fallo en la peticion AJAX " + err.code + "-" + err.message);
 			});
 
 	};
@@ -104,7 +106,7 @@ var Ctrl = (function(){
 			if (tecla.which === 13){
 				$rootScope.page = 1;
 				$rootScope.tit = t;
-				window.location.hash = '#/buscador/' + t;				
+				window.location.hash = '#/buscador/' + t;
 				$('.navbar-collapse').collapse('hide');
 			}
 		};
@@ -118,7 +120,7 @@ var Ctrl = (function(){
 				$scope.totalPages = peliculas.total_pages;
 				var total_results = $scope.total_results = peliculas.total_results;
 			if(total_results === 0){
-				console.log('no existe')
+				console.log('no existe');
 				//$('.lista').html('no existe');
 				}
 			})

@@ -1,11 +1,10 @@
-//el botón se hace visible si navegamos hacia abajo
-$(document).ready(function(){
-  
+$(document).ready(function() {  
+  //el botón se hace visible si navegamos hacia abajo
     $(window).scroll(function(){
         if ($(this).scrollTop() > 100) {
-             $('.scrollup').fadeIn();
+            $('.scrollup').fadeIn();
         } else {
             $('.scrollup').fadeOut();
         }
-    });  
+	});
 });
