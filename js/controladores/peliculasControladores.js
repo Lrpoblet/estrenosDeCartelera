@@ -49,7 +49,7 @@ var Ctrl = (function(){
 		};
 
 	var _pageProxCtrl = function($scope, $rootScope,$http,$log,$routeParams,$window){
-		$http.get('https://api.themoviedb.org/3/movie/upcoming?api_key=4584ae721cb020ce65a4bd25368ec31e&language=es'+ $routeParams.page + '&language=es')
+		$http.get('https://api.themoviedb.org/3/movie/upcoming?api_key=4584ae721cb020ce65a4bd25368ec31e&page='+ $routeParams.page + '&language=es')
 			.success(function(peliculas){
 				$scope.page = Number($routeParams.page);
 				$scope.peliculas = peliculas.results;
@@ -68,8 +68,8 @@ var Ctrl = (function(){
 		$http.get('https://api.themoviedb.org/3/movie/' + $routeParams.title + '?api_key=4584ae721cb020ce65a4bd25368ec31e&language=es')
 			
 			.success(function(pelicula){
-				//pelicula.poster_path = 'http://image.tmdb.org/t/p/w185' + pelicula.poster_path; 
 				$scope.pelicula = pelicula;
+				pelicula.poster_path = 'http://image.tmdb.org/t/p/w185' + pelicula.poster_path;
 			})
 
 			.success(function(pelicula){
